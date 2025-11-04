@@ -6,7 +6,10 @@ function appendNumber(val) {
     result.value = "0";
     is_calc = false;
   }
-  if (val === "." && result.value.includes(".")) return;
+
+  const currentNumber = result.value.split(/[\+\-\*\/]/).pop();
+  if (val === "." && currentNumber.includes(".")) return;
+
   if (result.value === "0" && val !== ".") {
     result.value = val;
   } else {
